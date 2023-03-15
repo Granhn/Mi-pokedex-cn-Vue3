@@ -1,15 +1,20 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-export const usePokemonStore = ('alerts', () =>{
+import { useGetData } from "../composables/getData";
+
+export const usePokemonStore = defineStore('alerts', () =>{
 
   let pokemons = ref([]);
+  
+
   const getPokemons = async() =>{
     try 
     {
-      const data = await fetch('https://pokeapi.co/api/v2/pokemon?limit=141&offset=0');
-      const results = await data.json();
-      results.results.forEach((ele) => { pokemons.value.push(ele) })
-      console.log(pokemons.value[135])
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0');
+      const data = await res.json();
+      data.results.forEach(poke => {
+        pokemons.value.push(poke);
+      })
     } 
     catch (error) 
     {
@@ -17,14 +22,7 @@ export const usePokemonStore = ('alerts', () =>{
     }
   }
 
-  const filterPokemon = (pokeName) => {
-    const aux = pokemons.value.filter((ele) => { ele.name === pokeName })
-    console.log(aux);
-  }
-
-
   getPokemons();
-
   return { pokemons };
 
 });

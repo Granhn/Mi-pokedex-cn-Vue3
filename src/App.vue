@@ -17,9 +17,22 @@
 
   <header>
     <div class="container">
-      <router-link to="/pokemons">A pokemons</router-link>
-      <router-link to="/">Home</router-link>
-      <router-link to="/favoritos">Tus pokemons favoritos</router-link>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">🏠</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <router-link to="/" class="nav-link">Home</router-link>
+              <router-link to="/pokemons" class="nav-link">Pokemons</router-link>
+              <router-link to="/favoritos" class="nav-link">Tus pokemons favoritos</router-link>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
       <h1>Pokedex  </h1>
     </div>
     
