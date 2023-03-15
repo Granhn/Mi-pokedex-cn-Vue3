@@ -19,13 +19,12 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand">🏠</a>
+          <router-link to="/" class="navbar-brand">🏠</router-link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <router-link to="/" class="nav-link">Home</router-link>
               <router-link to="/pokemons" class="nav-link">Pokemons</router-link>
               <router-link to="/favoritos" class="nav-link">Tus pokemons favoritos</router-link>
             </div>
