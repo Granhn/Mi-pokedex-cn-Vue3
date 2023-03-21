@@ -32,7 +32,6 @@
         </div>
       </nav>
       
-      <h1>Pokedex  </h1>
     </div>
     
   </header>

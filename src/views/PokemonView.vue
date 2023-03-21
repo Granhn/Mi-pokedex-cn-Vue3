@@ -10,13 +10,12 @@
         data.value = await res.json();
     }
     getPokeData();
-    console.log(data.value)
 
 </script>
 
 <template>
     <h2>{{ data?.name }}</h2>
-    <img :src="data?.sprites.front_default"/>
+    <img :src="data?.sprites?.front_default"/>
     <ul>
         <li v-for="tipo in data.types" :key="tipo.slot">
             <p >{{ tipo.type.name }}</p>
