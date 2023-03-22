@@ -13,7 +13,6 @@
     <p v-if="loading">Cargando pokemones</p>
     <template v-else>
         <h2>Pokemones</h2>
-            <h2>Nombres de pokemones</h2>
             <ul class="list-group">
                 <li v-for="pokemon in data?.results" class="list-group-item">
                     <router-link :to="`/pokemons/${pokemon.name}`">

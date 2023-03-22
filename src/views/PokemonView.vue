@@ -1,12 +1,13 @@
 <script setup>
 
     import { useRoute, useRouter } from 'vue-router';
-    import { ref } from 'vue'
+    import { usePokemonStore } from '../stores/usePokemonStore.js'
     import { useGetData } from '../composables/getData';
-import { computed } from '@vue/reactivity';
+
 
     const route = useRoute();
     const router = useRouter();
+    const pokemonStore = usePokemonStore();
     const { getData, data, error,loading } = useGetData();
     const vuelve = () => router.back('/pokemons')
     const emojiDeTipo = ((tipo) => {
@@ -32,8 +33,6 @@ import { computed } from '@vue/reactivity';
             'unknown':'👁‍🗨',
             'shadow':'🕶'
         }
-        console.log(tipo)
-        console.log(mapaDeTipos[tipo])
         return mapaDeTipos[tipo]
     })
 
@@ -43,7 +42,7 @@ import { computed } from '@vue/reactivity';
 </script>
 
 <template>
-    <h2 v-if="loading">Cargando pokemones</h2>
+    <h2 v-if="loading">Cargando pokemone</h2>
     <template v-else>
         <h2>{{ data?.name }}</h2>
         <img :src="data?.sprites?.front_default"/>
@@ -54,7 +53,8 @@ import { computed } from '@vue/reactivity';
 
             </li>
         </ul>
-        <button @click="vuelve">Volver a pokemones</button>
+        <button class="btn btn-primary" @click="vuelve">Volver a pokemones</button>
+        <button class="btn btn-primary" @click="pokemonStore.addAFavoritos(data.name,data.sprites.front_default)">Añadir a favoritos</button>
     </template>
     
 </template>

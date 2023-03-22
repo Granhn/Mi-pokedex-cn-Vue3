@@ -4,7 +4,7 @@
   import { usePokemonStore } from './stores/usePokemonStore.js'
   import { RouterLink, RouterView } from 'vue-router';
   import { storeToRefs } from 'pinia';
-
+  import PokeCard from './components/PokeCard.vue';
   const pokemonStore = usePokemonStore();
   const { pokemons } = storeToRefs(pokemonStore);
 
@@ -14,8 +14,9 @@
 
 
 <template>
+  <PokeCard/>
+  <header>  
 
-  <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
