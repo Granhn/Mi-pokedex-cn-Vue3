@@ -14,7 +14,6 @@
 
 
 <template>
-  <PokeCard/>
   <header>  
 
     <div class="container">

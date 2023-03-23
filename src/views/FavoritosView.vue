@@ -1,8 +1,9 @@
 <script setup>
+    import { storeToRefs } from 'pinia';
     import { usePokemonStore } from '../stores/usePokemonStore';
     import PokeCard from '../components/PokeCard.vue';
     const pokemonStore = usePokemonStore();
-    const { favoritos } = pokemonStore;
+    const { favoritos } = storeToRefs(usePokemonStore());
 
 </script>
 

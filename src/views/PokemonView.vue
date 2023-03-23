@@ -7,7 +7,9 @@
 
     const route = useRoute();
     const router = useRouter();
+
     const pokemonStore = usePokemonStore();
+    const { addAFavoritos, encontrarFavorito } = pokemonStore
     const { getData, data, error,loading } = useGetData();
     const vuelve = () => router.back('/pokemons')
     const emojiDeTipo = ((tipo) => {
@@ -54,7 +56,7 @@
             </li>
         </ul>
         <button class="btn btn-primary" @click="vuelve">Volver a pokemones</button>
-        <button class="btn btn-primary" @click="pokemonStore.addAFavoritos(data.name,data.sprites.front_default)">Añadir a favoritos</button>
+        <button :disabled="encontrarFavorito(data.name)" class="btn btn-primary" @click="addAFavoritos(data.name,data.sprites.front_default)">Añadir a favoritos</button>
     </template>
     
 </template>
