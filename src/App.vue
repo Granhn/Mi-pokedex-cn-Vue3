@@ -5,6 +5,7 @@
   import { RouterLink, RouterView } from 'vue-router';
   import { storeToRefs } from 'pinia';
   import PokeCard from './components/PokeCard.vue';
+  import Evoluciones from './components/Evoluciones.vue';
   const pokemonStore = usePokemonStore();
   const { pokemons } = storeToRefs(pokemonStore);
 

@@ -1,11 +1,12 @@
 <script setup>
 
+    import { ref } from 'vue';
     import { useGetData } from '../composables/getData';
     import { RouterLink } from 'vue-router';
 
-    const { getData, data, error,loading } = useGetData();
-    getData('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0');
-
+    const { getData, error,loading, data } = useGetData();
+    getData('https://pokeapi.co/api/v2/pokemon');
+    
 </script>
 
 

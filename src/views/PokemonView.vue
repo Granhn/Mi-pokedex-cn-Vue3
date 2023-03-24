@@ -1,8 +1,10 @@
 <script setup>
 
+    import { ref } from 'vue';
     import { useRoute, useRouter } from 'vue-router';
     import { usePokemonStore } from '../stores/usePokemonStore.js'
     import { useGetData } from '../composables/getData';
+    import Evoluciones from '../components/Evoluciones.vue';
 
 
     const route = useRoute();
@@ -10,7 +12,7 @@
 
     const pokemonStore = usePokemonStore();
     const { addAFavoritos, encontrarFavorito } = pokemonStore
-    const { getData, data, error,loading } = useGetData();
+    const { getData, data , error ,loading } = useGetData();
     const vuelve = () => router.back('/pokemons')
     const emojiDeTipo = ((tipo) => {
         const mapaDeTipos = {
@@ -36,10 +38,9 @@
             'shadow':'🕶'
         }
         return mapaDeTipos[tipo]
-    })
+    });
 
-    getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
-    
+    (getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`));
 
 </script>
 
@@ -55,8 +56,12 @@
 
             </li>
         </ul>
-        <button class="btn btn-primary" @click="vuelve">Volver a pokemones</button>
+        <Evoluciones
+        especie="dada"
+        />
+        <button class="btn btn-primary" @click="vuelve">Volver</button>
         <button :disabled="encontrarFavorito(data.name)" class="btn btn-primary" @click="addAFavoritos(data.name,data.sprites.front_default)">Añadir a favoritos</button>
+
     </template>
     
 </template>

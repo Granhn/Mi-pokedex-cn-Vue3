@@ -8,7 +8,7 @@ export const useGetData = (url) => {
     const getData = async (url) =>{
         try {
             const result = await fetch(url);
-            data.value  = await result.json()
+            data.value = await result.json()
         } catch (e) {
             data.value = null;
             error.value = "Error de servidor";
@@ -16,9 +16,8 @@ export const useGetData = (url) => {
             loading.value = false;
         }
         
+        
     }
-    fetch(url).then(res => res.json())
-    .then(json => data.value = json);
 
     return {
         getData,

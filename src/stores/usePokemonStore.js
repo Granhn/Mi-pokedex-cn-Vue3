@@ -2,9 +2,10 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 import { useGetData } from "../composables/getData";
 
-export const usePokemonStore = defineStore('alerts', () =>{
+export const usePokemonStore = defineStore('pokemonsotre', () =>{
 
   let favoritos = ref([]);
+
   if (localStorage.getItem('favoritos') ){
     favoritos.value = JSON.parse(localStorage.getItem('favoritos'))
   }
@@ -21,14 +22,10 @@ export const usePokemonStore = defineStore('alerts', () =>{
   }
 
   const removerFavorito = (pokemonName) => {
-    favoritos.value = favoritos.value.filter(pokemon => pokemon.nombrePokemon !== pokemonName)
+    favoritos.value = favoritos.value.filter(pokemon => pokemon.nombrePokemon !== pokemonName);
+    localStorage.setItem('favoritos',JSON.stringify(favoritos.value))
   }
   
   return { addAFavoritos, favoritos, encontrarFavorito, removerFavorito }
-
-  
-
-  
-
 });
 
